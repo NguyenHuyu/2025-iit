@@ -33,7 +33,7 @@ export default async function RootLayout(props: Readonly<InterfaceLayout>) {
                         enableSystem
                         disableTransitionOnChange
                     >
-                        <div className='min-h-svh bg-background text-foreground'>
+                        <div className='min-h-svh'>
                             <Navbar params={props?.params} />
                             {props.children}
                             <Footer params={props.params} />
