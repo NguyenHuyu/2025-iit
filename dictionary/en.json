@@ -1,0 +1,169 @@
+{
+    "navigation": {
+        "description": "IIT Institute of Technology - IIT Institute of Technology, Saigon International University",
+        "categories": {
+            "title": "Categories"
+        }
+    },
+    "header": {
+        "home": "Home",
+        "about": "About us",
+        "about_us": "About IIT",
+        "vision_mission": "Vision - Mission",
+        "organization": "Organization",
+
+        "education": "Education",
+        "education_program": "Education Program",
+        "course": "Courses",
+
+        "research": "Science & Technology",
+
+        "seminar": "Seminar - Workshop",
+        "program_product": "Program - Project",
+        "product": "Product",
+        "publication": "Publication",
+        "others": "Books - Textbooks - Lectures",
+
+        "cooperate": "Cooperate",
+
+        "academic_partners": "Academic Partners",
+        "business_partners": "Business Partners",
+
+        "contact": "Contact"
+    },
+    "page": {
+        "home_page": {
+            "title_meta": "Home | Institute of Innovation & Technology",
+            "description_meta": "Institute of Innovation & Technology - The Saigon International University",
+            "title_center": "SUBSIDIARY UNITS",
+            "title_center_health": "Center for Health and Environment",
+            "title_center_entrepreneurship": "Center for Entrepreneurship and Business Cooperation",
+            "title_center_leaning": "Center for Experiential Learning & Soft Skills",
+            "read_more": "Read more",
+            "bulletin": "Bulletins",
+            "news": "News",
+            "notify": "Announcements",
+            "upcoming": "Upcoming Events",
+            "search": "Tìm kiếm"
+        },
+        "contact": {
+            "title": "Contact us",
+            "form": {
+                "name": "Full Name",
+                "email": "Email",
+                "phone": "Phone",
+                "body": "Message",
+                "submit": "Submit"
+            }
+        },
+        "iit": {
+            "title": "INSTITUTE OF TECHNOLOGY & INNOVATION",
+            "description": [
+                "Official Name: INSTITUTE OF TECHNOLOGY & INNOVATION",
+                "Abbreviation: IIT",
+                "Address: 18 Tong Huu Dinh Street, Thao Dien Ward, Thu Duc City, Ho Chi Minh City",
+                "Parent Institution: The Saigon International University (SIU)",
+                "Characteristics: The Institute of Technology & Innovation in Asia inherits the history and development process of the Institute of Asian Studies (IAS) under the Greater Asia International Education Group (GAIE), of which The Saigon International University (SIU) and the Institute of Asian Studies are members."
+            ],
+            "role": "Role",
+            "sub_role": "As a unit responsible for connecting crucial resources to meet the goals of SIU and GAIE in the fields of education, scientific research, and practical application while leveraging the uniqueness and strengths of Eastern culture. It serves as a focal point for promoting and implementing innovative projects to meet the development of SIU and GAIE, enhancing opportunities and revenue growth for SIU and GAIE.",
+            "function": "Function",
+            "sub_function": [
+                "Conduct scientific research on economics, culture, education, urban development, environment, and social development issues in Asian countries.",
+                "Undertake applied research with special technology applications using information technology and artificial intelligence to implement innovative activities in all economic and social sectors based on the uniqueness and strengths of Eastern culture.",
+                "Science and technology services: Information, consulting, advanced training, technology transfer, and organizing scientific conferences and workshops in the above-mentioned fields."
+            ],
+            "duty": "Duty",
+            "detail_duty": "Based on its function, the Institute carries out four main missions related to research, training, advanced technology transfer, and the provision of scientific and technological services, as well as innovation and creativity to promote the development and innovative transformation of the university in training faculties to participate in innovative activities in all economic and social fields based on the uniqueness and strengths of Eastern culture. Specifically, these missions include:",
+            "sub_duty": [
+                {
+                    "sub": "Research in 5 areas for the development of Asian societies:",
+                    "sub_description": [
+                        "- Artificial intelligence and big data;",
+                        "- Social and corporate community management sciences;",
+                        "- Education and digital transformation sciences;",
+                        "- Resources, environment, and the blue economy;",
+                        "- Health and healthcare."
+                    ]
+                },
+                {
+                    "sub": "Offering training at 3 levels:",
+                    "sub_description": [
+                        "- Providing specialized skills training for students and learners;",
+                        "- Offering lifelong skills programs to meet the demands of Industry 4.0 for lecturers and students;",
+                        "- Connecting the Postgraduate Institute (PGI) with IIT through interdisciplinary international cooperation on the basis of enhancing the uniqueness and strengths of Eastern culture."
+                    ]
+                },
+                {
+                    "sub": "Providing expertise at 3 levels:",
+                    "sub_description": [
+                        "- Technology transfer;",
+                        "- Proposing smart system solutions in healthcare, education, urban transportation, and national smart systems;",
+                        "- Researching new technologies and innovations for the application of blockchain and fintech;",
+                        "- Transferring comprehensive systems to domestic and international partners (e-learning, remote training) in the 3 areas of scientific and technological services being implemented;",
+                        "- Organizing scientific conferences and summer schools;",
+                        "- Publishing scientific works and publications in both domestic and international journals;",
+                        "- Organizing scientific awards;",
+                        "- Research contracts and training, technology transfer agreements."
+                    ]
+                }
+            ]
+        },
+        "mission_vision": {
+            "mission": "Mission",
+            "sub_mission": "The institute has a mission to cultivate an innovative spirit for the highly qualified scientific faculty of SIU. It is ready to connect the internal community of SIU and GAIE with reputable external partners, domestic and international organizations, and to expand cooperation, innovation in training and research to enhance SIU's brand.",
+            "vission": "Vision",
+            "sub_vission": "IIT aims to become a pioneering model institute in promoting innovative transformation for SIU and is a specialized unit for innovative transformation within GAIE.",
+            "scope": "Scope of Activities",
+            "sub_scope": "The institute has a mission to cultivate an innovative spirit for the highly qualified scientific faculty of SIU. It is ready to connect the internal community of SIU and GAIE with reputable external partners, domestic and international organizations, and to expand cooperation, innovation in training and research to enhance SIU's brand.",
+            "scope1": "Education Sciences",
+            "scope2": "Social Management Sciences",
+            "scope3": "Health and Medicine",
+            "scope4": "Environmental Resources",
+            "scope5": "Artificial Intelligence and Big Data"
+        },
+        "organizational_structure": "ORGANIZATIONAL STRUCTURE",
+        "education": {
+            "title": "EDUCATION PROGRAM",
+            "desc": {
+                "title": "IIT Institute offers training at 3 levels",
+                "detail": [
+                    "Specialized skills training for students and learners.",
+                    "Lifelong skills programs to meet Industry 4.0 demands for lecturers and students.",
+                    "Academic programs through international cooperation based on the enhancement of Eastern cultural identity and strengths."
+                ]
+            },
+            "lists": [
+                {
+                    "title": "Development program of the IIT Institute",
+                    "detail": [
+                        "The IIT Institute serves as a hub connecting all departments/majors at SIU to forecast and prepare for the development of new undergraduate and graduate programs, as well as upgrading master's and doctoral programs at departments that have been accredited at the undergraduate level.",
+                        "This program is evaluated as a combination of accredited departments and new establishment programs through connections with the IIT Institute to support objective analysis/evaluation reports."
+                    ]
+                },
+                {
+                    "title": "International cooperation development program",
+                    "detail": [
+                        "Includes 3 programs initiated through proactive partner hunting and specific international partner recruitment to serve 03 programs and 05 projects aimed at completing the ecosystem and elevating the IIT Institute in the future.",
+                        "This program is evaluated as a combination of existing partners and prospecting through innovative connectivity, supported by the forward-looking direction of the AIIT Institute leadership to build effective international cooperation based on the enhancement of Eastern cultural identity and strengths."
+                    ]
+                },
+                {
+                    "title": "Skills development program",
+                    "detail": [
+                        "The AIIT Institute serves as a hub to promote and facilitate training programs in the areas of Foreign Languages/Information Technology, Life Skills, and Soft Skills (Entrepreneurship, Leadership).",
+                        "This program is a collaboration between the AIIT Institute and the SIU Foreign Language - IT Center, directly implemented with the approval of the AIIT Institute leadership."
+                    ]
+                }
+            ]
+        }
+    },
+    "footer": {
+        "title": "INSTITUTE OF INNOVATION & TECHNOLOGY",
+        "address": "8C - 18 Tong Huu Dinh, Thao Dien Ward, Thu Duc City, Ho Chi Minh City, Vietnam",
+        "note": "CONTACT US",
+        "mail": "iit@siu.edu.vn",
+        "phone": "+84 28.36203932",
+        "fact": "© Copyright 2023 SIU. All right reserved"
+    }
+}

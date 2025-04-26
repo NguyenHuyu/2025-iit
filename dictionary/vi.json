@@ -1,0 +1,171 @@
+{
+    "navigation": {
+        "description": "Viện Công nghệ IIT - Viện Công nghệ IIT, Đại học Quốc tế Sài Gòn",
+        "categories": {
+            "title": "Danh mục"
+        }
+    },
+    "header": {
+        "home": "Trang chủ",
+
+        "about": "Giới thiệu",
+        "about_us": "Giới thiệu về ITT",
+        "vision_mission": "Tầm nhìn - Sứ mệnh",
+        "organization": "Tổ chức",
+
+        "education": "Đào tạo",
+        "education_program": "Chương trình đào tạo",
+        "course": "Khóa học",
+
+        "research": "Khoa học & Công nghệ",
+
+        "seminar": "Seminar - Workshop",
+        "program_product": "Chương trình - Dự án",
+        "product": "Sản phẩm NCKH - CGCN",
+        "publication": "Công bố khoa học",
+        "others": "Sách - Giáo trình - Bài giảng",
+
+        "cooperate": "Hợp tác",
+
+        "academic_partners": "Đối tác học thuật",
+        "business_partners": "Đối tác doanh nghiệp",
+
+        "contact": "Liên hệ"
+    },
+    "page": {
+        "home_page": {
+            "title_meta": "Trang chủ | Viện Công nghệ & Sáng tạo",
+            "description_meta": "Viện Công nghệ & Sáng tạo - Trường Đại học Quốc tế Sài Gòn",
+
+            "title_center": "CÁC ĐƠN VỊ TRỰC THUỘC",
+
+            "title_center_health": "Trung tâm khoa học sức khỏe & Môi trường",
+            "title_center_entrepreneurship": "Trung tâm khởi nghiệp & Quan hệ doanh nghiệp",
+            "title_center_leaning": "Trung tâm trải nghiệm & Phát triển kỹ năng mềm",
+
+            "read_more": "Xem thêm",
+            "bulletin": "Bản tin",
+            "news": "Tin tức",
+            "notify": "Thông báo",
+            "upcoming": "Sự kiện sắp tới",
+            "search": "Tìm kiếm"
+        },
+        "contact": {
+            "title": "Liên hệ với chúng tôi",
+            "form": {
+                "name": "Họ tên",
+                "email": "Email",
+                "phone": "Số điện thoại",
+                "body": "Nội dung",
+                "submit": "Gửi"
+            }
+        },
+        "iit": {
+            "title": "VIỆN CÔNG NGHỆ & SÁNG TẠO",
+            "description": [
+                "Tên chính thức: VIỆN CÔNG NGHỆ & SÁNG TẠO",
+                "Tên viết tắt: IIT",
+                "Địa chỉ: 18 Tống Hữu Định, Phường Thảo Điền, Tp.Thủ Đức, TP. Hồ Chí Minh",
+                "Cơ quan chủ quản: Trường Đại học Quốc tế Sài Gòn (The Saigon International University - SIU)",
+                "Đặc tính: Viện Công nghệ & Sáng tạo Châu Á kế thừa lịch sử thành lập và quá trình phát triển của Viện Nghiên cứu Châu Á (IAS) thuộc Tập đoàn Giáo dục Quốc Tế Á Châu (GAIE) - mà Trường Đại học Quốc tế Sài Gòn (SIU) và Viện Nghiên cứu Châu Á là thành viên"
+            ],
+            "role": "Vai trò",
+            "sub_role": "Là đơn vị đảm trách kết nối các nguồn lực quan trọng đáp ứng mục tiêu của SIU và GAIE về lĩnh vực đào tạo, nghiên cứu khoa học và thực tiễn trên cơ sở phát huy bản sắc và thế mạnh của văn hoá phương Đông; Là đơn vị đầu mối thúc đẩy và triển khai các đề án đổi mới sáng tạo đáp ứng sự phát triển của SIU và GAIE; Gia tăng cơ hội và nguồn thu tăng trưởng của SIU và GAIE.",
+            "function": "Chức năng",
+            "sub_function": [
+                "Nghiên cứu khoa học về kinh tế, văn hóa, giáo dục, đô thị, môi trường và những vấn đề phát triển xã hội các nước Châu Á.",
+                "Nghiên cứu ứng dụng công nghệ đặc biệt sử dụng công nghệ thông tin và trí tuệ nhân tạo để triển khai các hoạt động đổi mới sáng tạo trong mọi lĩnh vực kinh tế, xã hội trên cơ sở phát huy bản sắc và thế mạnh của văn hoá phương Đông.",
+                "Dịch vụ khoa học và công nghệ: Thông tin, tư vấn, đào tạo nâng cao trình độ chuyên môn, chuyển giao công nghệ và tổ chức hội nghị - hội thảo khoa học trong các lĩnh vực nêu trên."
+            ],
+            "duty": "Nhiệm vụ",
+            "detail_duty": "Căn cứ trên chức năng, Viện thực hiện 4 nhóm nhiệm vụ chính về nghiên cứu, đào tạo, ứng dụng chuyển giao công nghệ tiên tiến và triển khai các dịch vụ khoa học - công nghệ và đổi mới - sáng tạo nhằm thúc đẩy phát triển và đổi mới sáng tạo của nhà trường tại các khoa, ngành đào tạo để tham gia triển khai các hoạt động đổi mới sáng tạo trong mọi lĩnh vực kinh tế, xã hội trên cơ sở phát huy bản sắc và thế mạnh của văn hoá phương Đông. Cụ thể như sau:",
+            "sub_duty": [
+                {
+                    "sub": "05 lĩnh vực nghiên cứu để phát triển xã hội của các nước Châu Á",
+                    "sub_description": [
+                        "- Trí tuệ nhân tạo, dữ liệu lớn;",
+                        "- Khoa học quản lý xã hội và cộng đồng doanh nghiệp;",
+                        "- Khoa học giáo dục & chuyển đổi số;",
+                        "- Tài nguyên, môi trường và kinh tế biển;",
+                        "- Sức khoẻ và y tế."
+                    ]
+                },
+                {
+                    "sub": "03 cấp độ đào tạo",
+                    "sub_description": [
+                        "- Đào tạo chuyên đề kỹ năng cho sinh viên và học sinh;",
+                        "- Giảng dạy các chương trình kỹ năng suốt đời đáp ứng CMCN 4.0 cho giảng viên và sinh viên;",
+                        "- Kết nối giữa Viện Sau đại học (SĐH) với Viện IIT qua các chuyên đề hàn lâm thông quan hợp tác quốc tế trên cơ sở phát huy bản sắc và thế mạnh của văn hoá phương Đông;"
+                    ]
+                },
+                {
+                    "sub": "03 cấp độ chuyên gia ứng dụng",
+                    "sub_description": [
+                        "- Chuyển giao Công nghệ",
+                        "- Đề xuất các giải pháp các hệ thống thông minh: y tế, giáo dục, giao thông dành đô thị, quốc gia thông minh;",
+                        "- Nghiên cứu công nghệ mới, sáng tạo để ứng dụng công nghệ Blockchain, Fintech;",
+                        "- Chuyển giao hệ thống hoàn chỉnh cho các đối tác trong nước và quốc tế (elearning, đào tạo từ xa) 03 mảng của các dịch vụ Khoa học - Công nghệ được triển khai - Tổ chức các hội thảo khoa học, trường hè;",
+                        "- Xuất bản các công trình, ấn phẩm khoa học, tạp chí trong nước và quốc tế;",
+                        "- Tổ chức các giải thưởng khoa học; - Hợp đồng nghiên cứu và đào tạo, chuyển giao công nghệ."
+                    ]
+                }
+            ]
+        },
+        "mission_vision": {
+            "mission": "Sứ mệnh",
+            "sub_mission": "Viện có sứ mạng xây dựng tinh thần đổi mới sáng tạo cho đội ngũ giảng viên khoa học trình độ cao của SIU; sẵn sàng kết nối cộng đồng bên trong của SIU, GAIE với đối tác uy tín bên ngoài, các tổ chức trong nước và quốc tế; đồng thời mở rộng hợp tác, đổi mới đào tạo và nghiên cứu nhằm nâng cao thương hiệu SIU.",
+            "vission": "Tầm nhìn",
+            "sub_vission": "IIT sẽ trở thành một viện kiểu mẫu về kết nối thúc đẩy đổi mới sáng tạo tiên phong của SIU và là đơn vị chuyên đổi mới sáng tạo của GAIE.",
+            "scope": "Phạm vi hoạt động",
+            "sub_scope": "Viện có sứ mạng xây dựng tinh thần đổi mới sáng tạo cho đội ngũ giảng viên khoa học trình độ cao của SIU; sẵn sàng kết nối cộng đồng bên trong của SIU, GAIE với đối tác uy tín bên ngoài, các tổ chức trong nước và quốc tế; đồng thời mở rộng hợp tác, đổi mới đào tạo và nghiên cứu nhằm nâng cao thương hiệu SIU.",
+            "scope1": "Khoa học giáo dục",
+            "scope2": "Khoa học quản lý xã hội",
+            "scope3": "Sức khỏe và y tế",
+            "scope4": "Tài nguyên môi trường",
+            "scope5": "Trí tuệ nhân tạo, dữ liệu lớn"
+        },
+        "organizational_structure": "CƠ CẤU TỔ CHỨC",
+        "education": {
+            "title": "CHƯƠNG TRÌNH ĐÀO TẠO",
+            "desc": {
+                "title": "Viện IIT cung cấp các khóa đào tạo ở 3 cấp độ",
+                "detail": [
+                    "Đào tạo chuyên đề kỹ năng cho sinh viên và học sinh.",
+                    "Giảng dạy các chương trình kỹ năng suốt đời đáp ứng CMCN 4.0 cho giảng viên và sinh viên.",
+                    "Các chuyên đề hàn lâm thông qua hợp tác quốc tế trên cơ sở phát huy bản sắc và thế mạnh của văn hoá phương Đông."
+                ]
+            },
+            "lists": [
+                {
+                    "title": "Chương trình phát triển của Viện IIT",
+                    "detail": [
+                        "Viện IIT là nơi kết nối tất cả các khoa/ngành tại SIU nhằm dự báo và thực hiện công tác chuẩn bị phục vụ phát triển cấp bậc đào tạo/nghiên cứu đại học khoa/ngành mới đồng thời nâng cấp bậc đào tạo/nghiên cứu thạc sĩ, tiến sĩ tại các khoa đã kiểm định bậc đại học.",
+                        "Chương trình này được đánh giá là thực hiện kết hợp các khoa đã kiểm định và thành lập mới cấp bậc thông qua kết nối với Viện IIT hỗ trợ các báo cáo phân tích/đánh giá khách quan."
+                    ]
+                },
+                {
+                    "title": "Chương trình phát triển hợp tác quốc tế",
+                    "detail": [
+                        "Bao gồm 3 chương trình xuất phát từ công tác chủ động săn lùng và tìm kiếm đối tác quốc tế đặc thù ươm trồng nhằm phục vụ cho 03 chương trình và 05 đề án để hoàn thiện hệ sinh thái và nâng tầm Viện IIT trong tương lai.",
+                        "Chương trình này được đánh giá là thực hiện kết hợp các đối tác có sẵn và săn tìm thông qua kết nối đổi mới sáng tạo được Ban lãnh đạo Viện AIIT hỗ trợ định hướng đón đầu để xây dựng hiệu quả hợp tác quốc tế trên cơ sở phát huy bản sắc và thế mạnh của văn hoá phương Đông."
+                    ]
+                },
+                {
+                    "title": "Chương trình phát triển kỹ năng",
+                    "detail": [
+                        "Viện AIIT là nơi kết nối, thúc đẩy đào tạo các chương trình kỹ năng thuộc nhóm Ngoại ngữ/CNTT, kỹ năng sống, kỹ năng mềm (khởi nghiệp, lãnh đạo).",
+                        "Chương trình này kết hợp giữa Viện AIIT với Trung tâm Ngoại ngữ - CNTT của SIU thực hiện ngay thông qua bằng việc tổ chức thực hiện được Ban lãnh đạo Viện AIIT chấp thuận."
+                    ]
+                }
+            ]
+        }
+    },
+    "footer": {
+        "title": "VIỆN CÔNG NGHỆ & SÁNG TẠO",
+        "address": "8C - 18 Tống Hữu Định, Phường Thảo Điền, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam",
+        "note": "LIÊN HỆ VỚI CHÚNG TÔI",
+        "mail": "iit@siu.edu.vn",
+        "phone": "+84 28.36203932",
+        "fact": "© Bản quyền 2023 SIU. Đã đăng ký Bản quyền"
+    }
+}

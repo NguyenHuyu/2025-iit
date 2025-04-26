@@ -1,0 +1,193 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+
+enum Language {
+  VI
+  EN
+}
+
+enum Status {
+  Achieved
+  Published
+}
+
+enum Category {
+  EVENTS
+  BUSINESS
+  ANNOUNCEMENTS
+  PUBLICATIONS
+  COURSES
+  SEMINARS
+  NEWS
+  BULLETINS
+  PRODUCTS
+  PROJECTS
+  OTHERS
+  ACADEMICS
+}
+
+enum BannerType {
+  IMAGE
+  VIDEO
+}
+
+model User {
+  id         String       @id @default(uuid()) @map("_id")
+  email      String       @unique
+  name       String?
+  password   String
+  role       Role         @default(USER)
+
+  permissions UserPagePermission[]
+  pages      Pages[]
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @default(now())
+}
+
+
+model Pages {
+  id           String   @id @default(uuid()) @map("_id")
+  title        String   @unique
+  slug         String   @unique
+
+  metadataBase String?
+  applicationName String?
+  author       String?
+  keywords     String?
+
+  appleIcon    String?
+  favicon      String?
+  shortcutIcon  String?
+
+  userId       String
+  user         User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  metadata     PageMetadata[]
+  openGraph    PageOpenGraph[]
+  twitter      PageTwitter[]
+  pageContent  PageContent[]
+
+  isSystem     Boolean @default(false)
+  isPageContent Boolean @default(true)
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @default(now())
+
+  UserPagePermission UserPagePermission[]
+}
+
+model PageMetadata {
+  id      String   @id @default(uuid()) @map("_id")
+  language    Language
+  title       String
+  description String?
+
+  pageId    String
+  page        Pages @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+}
+
+model PageContent {
+  id        String   @id @default(uuid()) @map("_id")
+
+  pageId        String
+  language    Language
+
+  content     String   @db.String
+
+  page        Pages @relation(fields: [pageId], references: [id], onDelete: Cascade)
+}
+
+model PageOpenGraph {
+  language    Language
+  title       String
+  description  String?
+  images       String?
+
+  id           String   @id @default(uuid()) @map("_id")
+
+  pageId        String
+  page        Pages @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+}
+
+model PageTwitter {
+  id        String   @id @default(uuid()) @map("_id")
+
+  language    Language
+  title       String
+  description  String?
+  images       String?
+
+  pageId        String
+  page        Pages @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+}
+
+model UserPagePermission {
+  id          String   @id @default(uuid()) @map("_id")
+  userId      String
+  pageId      String
+  canCreate   Boolean  @default(false)
+  canRead     Boolean  @default(true)
+  canUpdate   Boolean  @default(false)
+  canDelete   Boolean  @default(false)
+
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  page        Pages @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, pageId])
+}
+
+model Bulletin {
+  id          String    @id @default(uuid()) @map("_id")
+
+  category    Category
+
+  slug        String    @unique
+  title       String
+  description String
+
+  thumbnails  String
+
+  language    Language @default(VI)
+  body        String  @db.String
+
+  tags        String[]
+  isImportant Boolean  @default(true)
+  isDraft     Boolean  @default(true)
+  status      Status    @default(Achieved)
+
+  updatedAt   DateTime  @updatedAt()
+  createdAt   DateTime  @default(now())
+
+  @@unique([slug, language])
+}
+
+model Banner {
+  id         String   @id @default(uuid()) @map("_id")
+  name       String
+  url        String
+  size       Int
+
+  type       BannerType
+
+  status      Status    @default(Achieved)
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+
