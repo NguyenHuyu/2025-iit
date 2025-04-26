@@ -59,6 +59,8 @@ const nextConfig: NextConfig = {
             bodySizeLimit: '50mb',
         },
     },
+    serverActionsHeadersPolicy:
+        process.env.NODE_ENV === 'development' ? 'force-forwarded-host' : 'same-origin',
 }
 
 export default nextConfig
