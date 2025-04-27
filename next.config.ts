@@ -57,6 +57,7 @@ const nextConfig: NextConfig = {
     experimental: {
         serverActions: {
             bodySizeLimit: '50mb',
+            allowedOrigins: ['iit.siu.edu.vn', 'localhost:8010'],
         },
     },
     serverActionsHeadersPolicy:
