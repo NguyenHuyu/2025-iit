@@ -36,7 +36,7 @@ export default function PostToc() {
     if (!items.length) return null
 
     return (
-        <div className='order-1 lg:order-3'>
+        <div className='order-1 hidden md:block lg:order-3'>
             <div className='overflow-auto lg:sticky lg:top-24 lg:h-[calc(100vh-120px)]'>
                 <h2 className='text-sm font-bold uppercase'>On this page</h2>
 

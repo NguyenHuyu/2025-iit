@@ -46,7 +46,7 @@ export default async function Page({ searchParams, params }: InterfacePage) {
     })
 
     return (
-        <div className='bg-gradient-to-b from-white to-neutral-100 py-4 dark:from-neutral-950 dark:to-neutral-800 md:min-h-svh md:py-10'>
+        <div className='bg-gradient-to-b from-white to-neutral-100 py-4 md:min-h-svh md:py-10'>
             <BulletinWrapper>
                 <h2 className='relative z-20 text-center font-sans text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl lg:text-7xl'>
                     <div className='relative top-1/2 mx-auto inline-block w-max'>

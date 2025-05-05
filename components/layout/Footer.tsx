@@ -16,31 +16,29 @@ export default async function Footer({ params }: { params: InterfacePage['params
                 <div className='space-y-4'>
                     <div className='flex flex-col items-center justify-center gap-4'>
                         <Image src='/assets/logosiu.png' alt='SIU Logo' width={100} height={70} />
-                        <h2 className='text-xl leading-snug lg:text-2xl xl:text-3xl'>
-                            {footer.title}
-                        </h2>
+                        <h2 className='text-xl lg:text-2xl xl:text-3xl'>{footer.title}</h2>
                     </div>
 
                     {/* Social media */}
                     <div className='mt-4 flex justify-center gap-4'>
                         <Link href='https://facebook.com/iit.siu.edu.vn' target='_blank'>
-                            <Facebook className='h-5 w-5 hover:text-yellow-400' />
+                            <Facebook className='size-5 hover:text-yellow-400' />
                         </Link>
                         <Link
                             href='https://youtube.com/channel/UCbN4qbS_htx24I4I97W1mUQ'
                             target='_blank'
                         >
-                            <Youtube className='h-5 w-5 hover:text-yellow-400' />
+                            <Youtube className='size-5 hover:text-yellow-400' />
                         </Link>
                         <Link href='https://siu.edu.vn' target='_blank'>
-                            <Instagram className='h-5 w-5 hover:text-yellow-400' />
+                            <Instagram className='size-5 hover:text-yellow-400' />
                         </Link>
                         <Link href='https://linkedin.com/in/iit-siu-75a99b273' target='_blank'>
-                            <Linkedin className='h-5 w-5 hover:text-yellow-400' />
+                            <Linkedin className='size-5 hover:text-yellow-400' />
                         </Link>
                     </div>
 
-                    <div className='mt-6 flex flex-wrap justify-center gap-4 text-sm font-medium text-yellow-400 md:flex-row'>
+                    <div className='mt-6 flex flex-wrap justify-center gap-4 text-sm text-yellow-400 md:flex-row'>
                         <Link href='#'>ĐIỀU KHOẢN SỬ DỤNG</Link>
                         <Link href='#'>CHÍNH SÁCH BẢO MẬT</Link>
                         <Link href='#'>TUYỂN DỤNG</Link>
@@ -71,11 +69,11 @@ export default async function Footer({ params }: { params: InterfacePage['params
 
                     <div className='space-y-4'>
                         <div className='flex items-center gap-2'>
-                            <Phone className='h-5 w-5 text-yellow-400' />
+                            <Phone className='size-5 text-yellow-400' />
                             <p className='text-base md:text-lg'>+84 28.36203932</p>
                         </div>
                         <div className='flex items-center gap-2'>
-                            <Mail className='h-5 w-5 text-yellow-400' />
+                            <Mail className='size-5 text-yellow-400' />
                             <p className='text-base md:text-lg'>iit@siu.edu.vn</p>
                         </div>
                         <div className='mt-6 text-xs text-gray-300'>

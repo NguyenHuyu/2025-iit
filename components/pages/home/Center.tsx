@@ -35,12 +35,13 @@ export default function Center({ units, title }: CenterProps) {
 
         return () => {
             if (sectionRef.current) {
+                // eslint-disable-next-line react-hooks/exhaustive-deps
                 observer.unobserve(sectionRef.current)
             }
         }
     }, [])
     return (
-        <section ref={sectionRef} className='bg-gradient-to-b from-white to-gray-50 py-10'>
+        <section ref={sectionRef} className='bg-gradient-to-b from-white to-gray-50 py-6 md:py-10'>
             <div className='container mx-auto px-4'>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -49,10 +50,10 @@ export default function Center({ units, title }: CenterProps) {
                     transition={{ duration: 0.6 }}
                     className='mb-10 text-center'
                 >
-                    <h2 className='relative inline-block text-3xl tracking-tight text-gray-900 md:text-4xl lg:text-5xl'>
+                    <h3 className='relative inline-block text-2xl text-gray-800 md:text-4xl lg:text-5xl'>
                         {title}
-                        <span className='absolute -bottom-3 left-1/2 h-1 w-40 -translate-x-1/2 transform bg-[#D4AF37]'></span>
-                    </h2>
+                        <span className='absolute -bottom-3 left-1/2 h-1 w-40 -translate-x-1/2 bg-[#D4AF37]'></span>
+                    </h3>
                 </motion.div>
 
                 <div className='grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-12'>
@@ -79,9 +80,7 @@ export default function Center({ units, title }: CenterProps) {
                                             priority={index < 3}
                                         />
                                     </div>
-                                    <h4 className='mb-2 text-base font-medium text-gray-800'>
-                                        {unit.name}
-                                    </h4>
+                                    <h4 className='mb-2 text-base text-gray-800'>{unit.name}</h4>
 
                                     <div className='mt-auto flex items-center justify-between border-t border-gray-100 pt-2'>
                                         <span className='text-sm font-medium text-gray-600'>

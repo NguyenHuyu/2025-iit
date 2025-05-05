@@ -13,7 +13,7 @@ const PostSharing = () => {
     }, [])
 
     return (
-        <div className='order-3 flex justify-center lg:order-1 lg:justify-end'>
+        <div className='order-3 hidden justify-center md:flex lg:order-1 lg:justify-end'>
             <div className='sticky top-40 flex gap-4 lg:h-[calc(100vh-120px)] lg:flex-col'>
                 {/* Facebook Share */}
                 <a

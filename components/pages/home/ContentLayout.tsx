@@ -3,7 +3,7 @@ import { getAllBulletins } from '@/actions/bulletin.action'
 import { Locale } from '@/i18n/i18n-config'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Bell, Calendar, ChevronRight, Clock, Eye } from 'lucide-react'
+import { Bell, ChevronRight, Clock } from 'lucide-react'
 import { getDictionary } from '@/i18n/dictionaries'
 
 interface ContentLayoutProps {
@@ -43,13 +43,13 @@ export default async function ContentLayout({ locale, page }: ContentLayoutProps
     const upcomingEvents = eventResults?.data?.content || []
 
     return (
-        <div className='container mx-auto px-4 py-8'>
+        <div className='container mx-auto px-4 py-2 md:py-8'>
             {/* Grid chính cho Tin tức và Thông báo */}
             <div className='mb-12 grid grid-cols-1 gap-8 lg:grid-cols-3'>
                 {/* Phần tin tức */}
                 <div className='lg:col-span-2'>
                     <div className='mb-6 flex items-center justify-between'>
-                        <h2 className='text-2xl font-bold text-gray-800'>
+                        <h2 className='text-2xl text-gray-800 md:text-xl lg:text-3xl'>
                             {page.home_page.news}
                             <div className='mt-1 h-1 w-20 bg-yellow-500'></div>
                         </h2>
@@ -65,7 +65,7 @@ export default async function ContentLayout({ locale, page }: ContentLayoutProps
                             />
                             <div className='absolute inset-0 bg-gradient-to-t from-black/70 to-transparent'></div>
                             <div className='absolute bottom-0 left-0 p-4'>
-                                <span className='mb-2 inline-block rounded-full bg-yellow-500 px-3 py-1 text-xs font-semibold text-white'>
+                                <span className='mb-2 inline-block rounded-full bg-yellow-500 px-3 py-1 text-xs text-white'>
                                     {news[0]?.category}
                                 </span>
 
@@ -75,7 +75,7 @@ export default async function ContentLayout({ locale, page }: ContentLayoutProps
                                     </h3>
                                 </Link>
                                 <div className='flex items-center text-sm text-gray-200'>
-                                    <Clock className='mr-1 h-4 w-4' />
+                                    <Clock className='mr-1 size-4' />
                                     <span>{news[0]?.createdAt?.toLocaleDateString('vi-VN')}</span>
                                 </div>
                             </div>
@@ -95,19 +95,19 @@ export default async function ContentLayout({ locale, page }: ContentLayoutProps
                                         fill
                                         className='object-cover transition-transform duration-300 group-hover:scale-105'
                                     />
-                                    <div className='absolute left-2 top-2 rounded-full bg-yellow-500 px-2 py-1 text-xs font-semibold text-white'>
+                                    <div className='absolute left-2 top-2 rounded-full bg-yellow-500 px-2 py-1 text-xs text-white'>
                                         {news.category}
                                     </div>
                                 </div>
                                 <div className='p-4'>
                                     <Link href={`/${locale}/ban-tin/${news.slug}__${news.id}`}>
-                                        <h3 className='mb-2 line-clamp-2 text-lg font-semibold text-gray-800 hover:text-yellow-500'>
+                                        <h3 className='mb-2 line-clamp-2 text-lg text-gray-800 hover:text-yellow-500'>
                                             {news.title}
                                         </h3>
                                     </Link>
                                     <div className='flex items-center justify-between text-sm text-gray-500'>
                                         <div className='flex items-center'>
-                                            <Clock className='mr-1 h-4 w-4' />
+                                            <Clock className='mr-1 size-4' />
                                             <span>
                                                 {news.createdAt?.toLocaleDateString('vi-VN')}
                                             </span>
@@ -121,10 +121,10 @@ export default async function ContentLayout({ locale, page }: ContentLayoutProps
                     <div className='mt-6 text-center'>
                         <Link
                             href={`/${locale}/ban-tin`}
-                            className='inline-flex items-center rounded-full border border-yellow-500 px-6 py-2 text-sm font-medium text-yellow-500 transition-colors hover:bg-yellow-500 hover:text-white'
+                            className='inline-flex items-center rounded-full border border-yellow-500 px-6 py-2 text-sm text-yellow-500 transition-colors hover:bg-yellow-500 hover:text-white'
                         >
                             {page.home_page.read_more}
-                            <ChevronRight className='ml-1 h-4 w-4' />
+                            <ChevronRight className='ml-1 size-4' />
                         </Link>
                     </div>
                 </div>
@@ -132,7 +132,7 @@ export default async function ContentLayout({ locale, page }: ContentLayoutProps
                 {/* Phần thông báo */}
                 <div>
                     <div className='mb-6'>
-                        <h2 className='text-2xl font-bold text-gray-800'>
+                        <h2 className='text-2xl text-gray-800 md:text-xl lg:text-3xl'>
                             {page.home_page.notify}
                             <div className='mt-1 h-1 w-20 bg-yellow-500'></div>
                         </h2>
@@ -145,8 +145,8 @@ export default async function ContentLayout({ locale, page }: ContentLayoutProps
                                     key={notification.id}
                                     className='group flex items-start rounded-lg border-b border-gray-100 pb-4 last:border-0 last:pb-0'
                                 >
-                                    <div className='mr-3 mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-yellow-100 text-yellow-500'>
-                                        <Bell className='h-4 w-4' />
+                                    <div className='mr-3 mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-yellow-100 text-yellow-500'>
+                                        <Bell className='size-4' />
                                     </div>
                                     <div className='flex-1'>
                                         <div className='flex items-center'>
@@ -168,10 +168,10 @@ export default async function ContentLayout({ locale, page }: ContentLayoutProps
                         <div className='mt-4 text-center'>
                             <Link
                                 href={`/${locale}/ban-tin`}
-                                className='inline-flex items-center text-sm font-medium text-yellow-500 hover:text-yellow-600'
+                                className='inline-flex items-center text-sm text-yellow-500 hover:text-yellow-600'
                             >
                                 {page.home_page.read_more}
-                                <ChevronRight className='ml-1 h-4 w-4' />
+                                <ChevronRight className='ml-1 size-4' />
                             </Link>
                         </div>
                     </div>
@@ -181,7 +181,7 @@ export default async function ContentLayout({ locale, page }: ContentLayoutProps
             {/* Phần sự kiện sắp đến - đặt ở dưới cùng */}
             <div className='border-t border-gray-200 pt-8'>
                 <div className='mb-6'>
-                    <h2 className='text-2xl font-bold text-gray-800'>
+                    <h2 className='text-2xl text-gray-800 md:text-xl lg:text-3xl'>
                         {page.home_page.upcoming}
                         <div className='mt-1 h-1 w-20 bg-yellow-500'></div>
                     </h2>
@@ -200,17 +200,17 @@ export default async function ContentLayout({ locale, page }: ContentLayoutProps
                                     fill
                                     className='object-cover transition-transform duration-300 group-hover:scale-95'
                                 />
-                                <div className='absolute left-2 top-2 rounded-full bg-yellow-500 px-2 py-1 text-xs font-semibold text-white'>
+                                <div className='absolute left-2 top-2 rounded-full bg-yellow-500 px-2 py-1 text-xs text-white'>
                                     {event.category}
                                 </div>
                             </div>
                             <Link href={`/${locale}/ban-tin/${event.slug}__${event.id}`}>
-                                <h3 className='my-2 text-lg font-semibold text-gray-800 group-hover:text-yellow-500'>
+                                <h3 className='my-2 text-lg text-gray-800 group-hover:text-yellow-500'>
                                     {event.title}
                                 </h3>
                             </Link>
                             <div className='mb-1 flex items-center text-sm text-gray-600'>
-                                <Clock className='mr-2 h-4 w-4 text-gray-400' />
+                                <Clock className='mr-2 size-4 text-gray-400' />
                                 <span>{event.createdAt?.toLocaleDateString('vi-VN')}</span>
                             </div>
                             <div className='mb-4 flex items-center text-sm text-gray-600'>
@@ -224,7 +224,7 @@ export default async function ContentLayout({ locale, page }: ContentLayoutProps
                                     strokeWidth='2'
                                     strokeLinecap='round'
                                     strokeLinejoin='round'
-                                    className='mr-2 h-4 w-4 text-gray-400'
+                                    className='mr-2 size-4 text-gray-400'
                                 >
                                     <path d='M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z' />
                                     <circle cx='12' cy='10' r='3' />
@@ -238,9 +238,9 @@ export default async function ContentLayout({ locale, page }: ContentLayoutProps
                 <div className='mt-6 text-center'>
                     <Link
                         href={`/${locale}/ban-tin`}
-                        className='inline-flex items-center rounded-full border border-yellow-500 px-6 py-2 text-sm font-medium text-yellow-500 transition-colors hover:bg-yellow-500 hover:text-white'
+                        className='inline-flex items-center rounded-full border border-yellow-500 px-6 py-2 text-sm text-yellow-500 transition-colors hover:bg-yellow-500 hover:text-white'
                     >
-                        {page.home_page.read_more} <ChevronRight className='ml-1 h-4 w-4' />
+                        {page.home_page.read_more} <ChevronRight className='ml-1 size-4' />
                     </Link>
                 </div>
             </div>

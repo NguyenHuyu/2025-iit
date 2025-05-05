@@ -1,8 +1,8 @@
 'use client'
+import { Fragment } from 'react'
 import { cn } from '@/lib/utils'
 import { Link } from 'next-view-transitions'
-import { useParams, usePathname } from 'next/navigation'
-import { Fragment } from 'react'
+import { useParams } from 'next/navigation'
 
 interface Props {
     title: string
@@ -32,7 +32,6 @@ function Item({ title, href, className }: ItemProps) {
 }
 
 export default function NavMenu({ data }: { data: NavMenuProps[] }) {
-    const pathName = usePathname()
     const locale = useParams().locale
 
     return (
@@ -42,7 +41,7 @@ export default function NavMenu({ data }: { data: NavMenuProps[] }) {
                     {data.map((item, index) => (
                         <div
                             key={index}
-                            className='group relative text-[10px] font-medium md:text-xs lg:text-base'
+                            className='group relative font-medium md:text-base lg:text-lg xl:text-xl'
                         >
                             {item.children ? (
                                 <Fragment>
@@ -63,10 +62,10 @@ export default function NavMenu({ data }: { data: NavMenuProps[] }) {
                                             ></path>
                                         </svg>
                                     </div>
-                                    <div className='absolute -left-10 mt-1 max-h-0 min-h-20 w-60 scale-95 overflow-hidden rounded-md bg-slate-100 opacity-0 shadow-lg transition-all duration-300 group-hover:max-h-96 group-hover:scale-100 group-hover:opacity-100'>
+                                    <div className='absolute mt-1 max-h-0 min-h-20 w-60 scale-95 overflow-hidden rounded-md bg-slate-100 opacity-0 shadow-lg transition-all duration-300 group-hover:max-h-96 group-hover:scale-100 group-hover:opacity-100 md:-left-20 lg:-left-10'>
                                         {item.children.map((child, childIndex) => (
                                             <Item
-                                                className='block truncate px-4 py-2 text-[10px] text-black hover:text-[#E6C067] md:text-xs lg:text-base'
+                                                className='block truncate px-4 py-2 text-black hover:text-[#E6C067] md:text-base lg:text-lg xl:text-xl'
                                                 key={childIndex}
                                                 title={child.title}
                                                 href={`/${locale}/${child.href}`}

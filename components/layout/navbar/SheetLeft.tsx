@@ -18,12 +18,17 @@ interface SheetLeftProps {
 
 export function SheetLeft({ items, dictionary }: SheetLeftProps) {
     const [open, setOpen] = useState(false)
+
     const locale = useParams().locale
 
     return (
         <Sheet modal open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-                <Button variant='ghost' size='icon' className='flex md:hidden'>
+                <Button
+                    variant='ghost'
+                    size='icon'
+                    className='flex text-white hover:bg-transparent hover:text-black/20 md:hidden'
+                >
                     <AlignLeftIcon />
                 </Button>
             </SheetTrigger>
@@ -38,7 +43,7 @@ export function SheetLeft({ items, dictionary }: SheetLeftProps) {
                             {items.map((item, index) => (
                                 <Link
                                     key={index}
-                                    href={`/${locale}${item.href}`}
+                                    href={`/${locale}/${item.href}`}
                                     onClick={() => setOpen(false)}
                                 >
                                     <p className='line-clamp-1 rounded-lg px-1 py-0.5 text-base hover:bg-slate-100'>
