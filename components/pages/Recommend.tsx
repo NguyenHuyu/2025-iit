@@ -19,7 +19,7 @@ export async function RecommendedProducts({
         <div className='container mx-auto max-w-6xl space-y-6 py-8'>
             <h2 className='text-lg font-medium text-black'>Bài viết khác</h2>
 
-            <div className='grid grid-cols-2 gap-6 md:grid-cols-3'>
+            <div className='grid grid-cols-2 gap-6'>
                 {items.map((product) => {
                     const href = `/${params}/${product.slug}__${product.id}`
                     return (

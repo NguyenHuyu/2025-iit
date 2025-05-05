@@ -58,8 +58,11 @@
         "@tiptap/extension-table-cell": "^2.11.5",
         "@tiptap/extension-table-header": "^2.11.5",
         "@tiptap/extension-table-row": "^2.11.5",
+        "@tiptap/extension-task-item": "^2.11.9",
+        "@tiptap/extension-task-list": "^2.11.9",
         "@tiptap/extension-text-align": "^2.11.5",
         "@tiptap/extension-text-style": "^2.11.5",
+        "@tiptap/extension-typography": "^2.11.9",
         "@tiptap/extension-underline": "^2.11.5",
         "@tiptap/pm": "^2.11.5",
         "@tiptap/react": "^2.11.5",
@@ -71,6 +74,7 @@
         "codemirror": "^6.0.1",
         "date-fns": "^4.1.0",
         "date-fns-tz": "^3.2.0",
+        "dompurify": "^3.2.5",
         "embla-carousel-react": "^8.5.2",
         "file-type": "^20.4.0",
         "framer-motion": "^12.4.11",
@@ -659,11 +663,17 @@
 
     "@tiptap/extension-table-row": ["@tiptap/extension-table-row@2.11.5", "", { "peerDependencies": { "@tiptap/core": "^2.7.0" } }, "sha512-+/VWhCuW24BcM5aaIc/f0bC6ZR1Q5gnuqw13MIo7gyPx7iIY6BXK8roGiZSs8wYAN4uBEf3EKFm0bSZwQuAeyg=="],
 
+    "@tiptap/extension-task-item": ["@tiptap/extension-task-item@2.11.9", "", { "peerDependencies": { "@tiptap/core": "^2.7.0", "@tiptap/pm": "^2.7.0" } }, "sha512-DrlhZkCjtfcM3szV6cn9IG3Ao8f8Oeo60GdVfrw4NIvSkjDwVqWYxOwoCZBERMLMdYwpkmlVRgnGZLz+MNYasA=="],
+
+    "@tiptap/extension-task-list": ["@tiptap/extension-task-list@2.11.9", "", { "peerDependencies": { "@tiptap/core": "^2.7.0" } }, "sha512-xFMo5FMrpld4U5pqS+Ml9LKXXvRalcx5HUw4bFiUbx9hJON+WgTcXUgIGoLIphE/cMRp63vo331lK/PVSpNrHw=="],
+
     "@tiptap/extension-text": ["@tiptap/extension-text@2.11.5", "", { "peerDependencies": { "@tiptap/core": "^2.7.0" } }, "sha512-Gq1WwyhFpCbEDrLPIHt5A8aLSlf8bfz4jm417c8F/JyU0J5dtYdmx0RAxjnLw1i7ZHE7LRyqqAoS0sl7JHDNSQ=="],
 
     "@tiptap/extension-text-align": ["@tiptap/extension-text-align@2.11.5", "", { "peerDependencies": { "@tiptap/core": "^2.7.0" } }, "sha512-Ei0zDpH5N9EV59ogydK4HTKa4lCPicCsQllM5n/Nf2tUJPir3aiYxzJ73FzhComD4Hpo1ANYnmssBhy8QeoPZA=="],
 
     "@tiptap/extension-text-style": ["@tiptap/extension-text-style@2.11.5", "", { "peerDependencies": { "@tiptap/core": "^2.7.0" } }, "sha512-YUmYl0gILSd/u/ZkOmNxjNXVw+mu8fpC2f8G4I4tLODm0zCx09j9DDEJXSrM5XX72nxJQqtSQsCpNKnL0hfeEQ=="],
+
+    "@tiptap/extension-typography": ["@tiptap/extension-typography@2.11.9", "", { "peerDependencies": { "@tiptap/core": "^2.7.0" } }, "sha512-fT8JRKXxSWJ6A8Sg3Cixm93seLLABsQlz8x0N0VNq4AXFaN2gSa/J24Y+h3FUejqTVuegzj29SrDFtqD5A01+Q=="],
 
     "@tiptap/extension-underline": ["@tiptap/extension-underline@2.11.5", "", { "peerDependencies": { "@tiptap/core": "^2.7.0" } }, "sha512-YpWHXNIkSoRSuzT2cvgKpyJ2tTz3LzqkTM64uC+uTJ8cUkvXIWUWejJR42q8ma/mTlQe4lHff4IQ0Sf58Digtw=="],
 
@@ -730,6 +740,8 @@
     "@types/react": ["@types/react@19.0.10", "", { "dependencies": { "csstype": "^3.0.2" } }, "sha512-JuRQ9KXLEjaUNjTWpzuR231Z2WpIwczOkBEIvbHNCzQefFIT0L8IqE6NV6ULLyC1SI/i234JnDoMkfg+RjQj2g=="],
 
     "@types/react-dom": ["@types/react-dom@19.0.4", "", { "peerDependencies": { "@types/react": "^19.0.0" } }, "sha512-4fSQ8vWFkg+TGhePfUzVmat3eC14TXYSsiiDSLI0dVLsrm9gZFABjPy/Qu6TKgl1tq1Bu1yDsuQgY3A3DOjCcg=="],
+
+    "@types/trusted-types": ["@types/trusted-types@2.0.7", "", {}, "sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw=="],
 
     "@types/unist": ["@types/unist@3.0.3", "", {}, "sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q=="],
 
@@ -972,6 +984,8 @@
     "doctrine": ["doctrine@2.1.0", "", { "dependencies": { "esutils": "^2.0.2" } }, "sha512-35mSku4ZXK0vfCuHEDAwt55dg2jNajHZ1odvF+8SSr82EsZY4QmXfuWso8oEd8zRhVObSN18aM0CjSdoBX7zIw=="],
 
     "dom-helpers": ["dom-helpers@5.2.1", "", { "dependencies": { "@babel/runtime": "^7.8.7", "csstype": "^3.0.2" } }, "sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA=="],
+
+    "dompurify": ["dompurify@3.2.5", "", { "optionalDependencies": { "@types/trusted-types": "^2.0.7" } }, "sha512-mLPd29uoRe9HpvwP2TxClGQBzGXeEC/we/q+bFlmPPmj2p2Ugl3r6ATu/UU1v77DXNcehiBg9zsr1dREyA/dJQ=="],
 
     "dunder-proto": ["dunder-proto@1.0.1", "", { "dependencies": { "call-bind-apply-helpers": "^1.0.1", "es-errors": "^1.3.0", "gopd": "^1.2.0" } }, "sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A=="],
 

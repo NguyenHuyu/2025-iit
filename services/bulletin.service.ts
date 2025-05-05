@@ -198,7 +198,7 @@ export const BulletinService = {
                 },
             })
             return {
-                message: 'Người dùng đã được cập nhật thành công',
+                message: 'Cập nhật thành công',
                 statusCode: StatusCode.Ok,
             }
         } catch (error) {

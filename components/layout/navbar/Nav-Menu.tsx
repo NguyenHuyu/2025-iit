@@ -62,10 +62,10 @@ export default function NavMenu({ data }: { data: NavMenuProps[] }) {
                                             ></path>
                                         </svg>
                                     </div>
-                                    <div className='absolute mt-1 max-h-0 min-h-20 w-60 scale-95 overflow-hidden rounded-md bg-slate-100 opacity-0 shadow-lg transition-all duration-300 group-hover:max-h-96 group-hover:scale-100 group-hover:opacity-100 md:-left-20 lg:-left-10'>
+                                    <div className='absolute mt-1 max-h-0 min-h-20 scale-95 overflow-hidden rounded-md bg-slate-100 opacity-0 shadow-lg transition-all duration-300 group-hover:max-h-96 group-hover:scale-100 group-hover:opacity-100 md:-left-20 lg:-left-10 lg:w-72'>
                                         {item.children.map((child, childIndex) => (
                                             <Item
-                                                className='block truncate px-4 py-2 text-black hover:text-[#E6C067] md:text-base lg:text-lg xl:text-xl'
+                                                className='block truncate px-4 py-2 text-black hover:text-[#E6C067] md:text-base lg:text-lg'
                                                 key={childIndex}
                                                 title={child.title}
                                                 href={`/${locale}/${child.href}`}

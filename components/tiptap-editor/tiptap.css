@@ -1,0 +1,362 @@
+/* Editor-specific styles that don't affect content rendering */
+
+/* Core Editor Styles */
+.ProseMirror {
+  caret-color: var(--content-text-default);
+  outline: none;
+  padding: var(--content-spacing-16) var(--content-spacing-8);
+  min-height: 100vh;
+}
+
+.ProseMirror:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.ProseMirror .selection,
+.ProseMirror *::selection {
+  background-color: var(--content-highlight-blue);
+}
+
+.ProseMirror > .react-renderer {
+  margin: var(--content-spacing-12) 0;
+  transition: all var(--content-transition-normal);
+}
+
+.ProseMirror > .react-renderer:first-child {
+  margin-top: 0;
+}
+
+.ProseMirror > .react-renderer:last-child {
+  margin-bottom: 0;
+}
+
+/* List Style Buttons */
+.list-style-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  height: 2rem;
+  padding: 0 0.5rem;
+  transition: all var(--content-transition-fast);
+  background-color: transparent;
+  color: var(--content-text-default);
+  border: 1px solid transparent;
+}
+
+.list-style-button:hover {
+  background-color: var(--content-bg-subtle);
+}
+
+.list-style-button.active {
+  background-color: var(--content-bg-muted);
+  color: var(--content-text-blue);
+}
+
+/* Table specific editor styles */
+.ProseMirror table .selectedCell:after {
+  z-index: 2;
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(200, 200, 255, 0.4);
+  pointer-events: none;
+}
+
+.ProseMirror table .column-resize-handle {
+  position: absolute;
+  right: -2px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: #adf;
+  cursor: col-resize;
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.ProseMirror table .column-resize-handle:hover,
+.ProseMirror table .column-resize-handle.dragging {
+  opacity: 1;
+}
+
+/* Floating Menu & Toolbar */
+.floating-menu {
+  background-color: var(--content-bg-default);
+  border: 1px solid var(--content-border-default);
+  box-shadow: var(--content-shadow-lg);
+  border-radius: 8px;
+  padding: var(--content-spacing-1);
+  display: flex;
+  gap: var(--content-spacing-1);
+  align-items: center;
+  animation: fadeIn var(--content-transition-normal);
+  backdrop-filter: blur(8px);
+}
+
+.toolbar-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  height: 2.25rem;
+  padding: 0 var(--content-spacing-3);
+  transition: all var(--content-transition-fast);
+  background-color: transparent;
+  color: var(--content-text-default);
+  border: 1px solid transparent;
+}
+
+.toolbar-button:hover {
+  background-color: var(--content-bg-subtle);
+  color: var(--content-text-default);
+}
+
+.toolbar-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--content-border-strong);
+}
+
+.toolbar-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.toolbar-button.active {
+  background-color: var(--content-bg-muted);
+  color: var(--content-text-blue);
+}
+
+/* Placeholder Styles */
+.is-editor-empty::before {
+  color: var(--content-text-gray);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Table Floating Menu */
+.table-floating-menu {
+  display: flex;
+  background-color: var(--content-bg-default);
+  border: 1px solid var(--content-border-default);
+  border-radius: 4px;
+  box-shadow: var(--content-shadow-md);
+  padding: 4px;
+  z-index: 50;
+}
+
+.table-floating-menu button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  margin: 0 2px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-floating-menu button:hover {
+  background-color: var(--content-bg-subtle);
+}
+
+.table-floating-menu button.active {
+  background-color: var(--content-bg-muted);
+}
+
+.table-floating-menu .separator {
+  width: 1px;
+  height: 24px;
+  background-color: var(--content-border-default);
+  margin: 0 4px;
+}
+
+/* Task List Styles */
+.ProseMirror ul[data-type="taskList"] {
+  list-style: none;
+  padding: 0;
+}
+
+.ProseMirror ul[data-type="taskList"] li {
+  display: flex;
+  align-items: flex-start;
+  margin: 0.5em 0;
+}
+
+.ProseMirror ul[data-type="taskList"] li > label {
+  flex: 0 0 auto;
+  margin-right: 0.5em;
+  user-select: none;
+}
+
+.ProseMirror ul[data-type="taskList"] li > div {
+  flex: 1 1 auto;
+}
+
+/* Toggle List Styles */
+.toggle-list {
+  margin: 1em 0;
+}
+
+.toggle-list [data-toggle-summary] {
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.toggle-list [data-toggle-content] {
+  margin-top: 0.5em;
+  padding-left: 1em;
+}
+
+/* Block Conversion Menu */
+.block-conversion-menu {
+  z-index: 50;
+}
+
+/* Table Cell Styles */
+.ProseMirror table td.selectedCell,
+.ProseMirror table th.selectedCell {
+  position: relative;
+}
+
+.ProseMirror table td.selectedCell::after,
+.ProseMirror table th.selectedCell::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 100, 255, 0.2);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .ProseMirror {
+    padding: 0;
+    max-width: none;
+  }
+
+  .floating-menu,
+  .toolbar-button {
+    display: none;
+  }
+}
+
+/* Mobile Table Controls */
+@media (max-width: 640px) {
+  .table-floating-menu {
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Focus styles for editor */
+.ProseMirror:focus-visible {
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+  border-color: #3b82f6;
+}
+
+/* Improved table styles */
+.ProseMirror table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  margin: 1em 0;
+  overflow: hidden;
+}
+
+.ProseMirror table td,
+.ProseMirror table th {
+  min-width: 1em;
+  border: 1px solid #e2e8f0;
+  padding: 0.5em;
+  vertical-align: top;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.ProseMirror table th {
+  font-weight: bold;
+  background-color: #f8fafc;
+}
+
+/* Bubble menu styles */
+.tippy-box[data-animation="fade"][data-state="hidden"] {
+  opacity: 0;
+}
+
+.tippy-box[data-animation="fade"][data-state="visible"] {
+  opacity: 1;
+  transition: opacity 0.2s ease-out;
+}
+
+/* PDF Upload Styles */
+.pdf-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.pdf-wrapper .pdf-actions {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.pdf-wrapper:hover .pdf-actions {
+  opacity: 1;
+}
+
+.pdf-wrapper .pdf-preview {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 0.375rem;
+}
+
+.pdf-wrapper .pdf-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: var(--content-bg-subtle);
+  border: 2px dashed var(--content-border-default);
+  border-radius: 0.375rem;
+  cursor: pointer;
+}
+
+.pdf-wrapper .pdf-placeholder:hover {
+  background-color: var(--content-bg-muted);
+}

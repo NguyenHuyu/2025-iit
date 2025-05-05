@@ -9,44 +9,44 @@ import { getPageBySlugAndLanguage } from '@/actions/page.action'
 import { Language } from '@prisma/client'
 import { Metadata } from 'next'
 
-// export async function generateMetadata({ params }: InterfacePage): Promise<Metadata> {
-//     const param = await params
+export async function generateMetadata({ params }: InterfacePage): Promise<Metadata> {
+    const { id, locale } = await params
 
-//     const result = await getPageBySlugAndLanguage(
-//         '/gioi-thieu-iit',
-//         param.locale.toUpperCase() as Language
-//     )
+    const result = await getPageBySlugAndLanguage(
+        verifySlug(id as string),
+        locale.toUpperCase() as Language
+    )
 
-//     return {
-//         title: result.data?.metadata[0]?.title,
-//         description: result.data?.metadata[0]?.description,
-//         metadataBase: result.data?.metadataBase ? new URL(result.data?.metadataBase) : null,
-//         alternates: {
-//             canonical: result.data?.slug,
-//             languages: {
-//                 [result.data?.metadata[0]?.language as string]:
-//                     `/${result.data?.metadata[0]?.language}`,
-//                 [result.data?.metadata[1]?.language as string]:
-//                     `/${result.data?.metadata[1]?.language}`,
-//             },
-//         },
-//         icons: {
-//             apple: result.data?.appleIcon as string,
-//             shortcut: result.data?.shortcutIcon as string,
-//             icon: result.data?.favicon as string,
-//         },
-//         openGraph: {
-//             title: result.data?.openGraph[0]?.title,
-//             description: result.data?.openGraph[0]?.title,
-//             images: result.data?.openGraph[0]?.images as string,
-//         },
-//         twitter: {
-//             title: result.data?.twitter[0]?.title,
-//             description: result.data?.twitter[0]?.title,
-//             images: result.data?.twitter[0]?.images as string,
-//         },
-//     }
-// }
+    return {
+        title: result.data?.metadata[0]?.title,
+        description: result.data?.metadata[0]?.description,
+        metadataBase: result.data?.metadataBase ? new URL(result.data?.metadataBase) : null,
+        alternates: {
+            canonical: result.data?.slug,
+            languages: {
+                [result.data?.metadata[0]?.language as string]:
+                    `/${result.data?.metadata[0]?.language}`,
+                [result.data?.metadata[1]?.language as string]:
+                    `/${result.data?.metadata[1]?.language}`,
+            },
+        },
+        icons: {
+            apple: result.data?.appleIcon as string,
+            shortcut: result.data?.shortcutIcon as string,
+            icon: result.data?.favicon as string,
+        },
+        openGraph: {
+            title: result.data?.openGraph[0]?.title,
+            description: result.data?.openGraph[0]?.title,
+            images: result.data?.openGraph[0]?.images as string,
+        },
+        twitter: {
+            title: result.data?.twitter[0]?.title,
+            description: result.data?.twitter[0]?.title,
+            images: result.data?.twitter[0]?.images as string,
+        },
+    }
+}
 
 export default async function Page({ params }: InterfacePage) {
     const { id, locale } = await params
@@ -69,7 +69,7 @@ export default async function Page({ params }: InterfacePage) {
                     args={{
                         categories: ['NEWS', 'ANNOUNCEMENTS', 'EVENTS'],
                         status: 'Published',
-                        limit: 9,
+                        limit: 8,
                     }}
                     id={id as string}
                     params={`${locale}/ban-tin`}

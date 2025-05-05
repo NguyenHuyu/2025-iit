@@ -1,5 +1,4 @@
 'use client'
-import { useRef } from 'react'
 import { Input } from '@/components/ui/input'
 import {
     Select,
@@ -18,7 +17,6 @@ import { CustomFormField, SubmitButton } from '@/components/forms'
 import { generateSlug } from '@/utils/slugify'
 import SingleHandleImage from '@/components/forms/Image'
 import { Switch } from '@/components/ui/switch'
-import TiptapEditor, { TiptapEditorRef } from '@/components/tiptap/TiptapEditor'
 import { processImageUrls } from '@/lib/process-update-image'
 import {
     createBulletin,
@@ -30,6 +28,7 @@ import { Status as StatusCode } from '@reflet/http'
 import { toaster } from '@/components/shared/Toast'
 import { Textarea } from '@/components/ui/textarea'
 import { Language } from '@prisma/client'
+import { RichTextEditor } from '@/components/tiptap-editor/rich-text-editor'
 
 interface BulletinEditorProps {
     bulletin?: Bulletin
@@ -37,7 +36,6 @@ interface BulletinEditorProps {
 }
 
 export function BulletinEditor({ bulletin, header }: BulletinEditorProps) {
-    const editorRef = useRef<TiptapEditorRef>(null)
     const router = useRouter()
     const form = useForm({
         defaultValues:
@@ -334,7 +332,7 @@ export function BulletinEditor({ bulletin, header }: BulletinEditorProps) {
                                 labelName='Description'
                                 name={field.name}
                             >
-                                <TiptapEditor
+                                {/* <TiptapEditor
                                     ref={editorRef}
                                     ssr={true}
                                     output='html'
@@ -348,6 +346,17 @@ export function BulletinEditor({ bulletin, header }: BulletinEditorProps) {
                                         field.handleChange(value as string)
                                     }}
                                     initialContent={field.state.value}
+                                /> */}
+                                <RichTextEditor
+                                    value={field.state.value}
+                                    onChangeValue={(html) => field.handleChange(html as string)}
+                                    className='my-custom-class'
+                                    enableAutoSave={false}
+                                    storageKey='my-editor-content'
+                                    showToolbar={true}
+                                    showFloatingToolbar={true}
+                                    showFloatingMenu={true}
+                                    readOnly={false}
                                 />
                             </CustomFormField>
                         )}
