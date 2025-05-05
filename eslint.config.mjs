@@ -59,6 +59,8 @@ const eslintConfig = [
             semi: ['warn', 'never'],
             quotes: ['warn', 'single'],
             'tailwindcss/no-custom-classname': 'off',
+            '@typescript-eslint/ban-ts-comment': 'off',
+
             'prefer-arrow-callback': ['warn'],
             'prefer-template': ['warn'],
             'no-var': 'warn',
