@@ -66,7 +66,7 @@ export default function AdvancedSearch() {
         const isImportant = searchParams.get('isImportant') === 'true'
         const keyword = searchParams.get('keyword') || ''
         const selectedCategories = searchParams.get('categories')?.split(',') ?? []
-        const page = parseInt(searchParams.get('page') || '1', 10)
+        const page = Number.parseInt(searchParams.get('page') || '1', 10)
 
         const filters: FilterValue[] = []
         const filterKeys = searchParams.getAll('filter')
@@ -117,49 +117,44 @@ export default function AdvancedSearch() {
         [language]
     )
 
-    useEffect(() => {
-        const updateURL = async () => {
-            setIsLoading(true)
-            const searchTermChanged = debouncedSearchTerm !== urlParams.searchTerm
-            if (searchTermChanged) setIsSearching(true)
+    const updateURL = useCallback(async () => {
+        setIsLoading(true)
+        const searchTermChanged = debouncedSearchTerm !== urlParams.searchTerm
+        if (searchTermChanged) setIsSearching(true)
 
-            try {
-                const params = new URLSearchParams()
+        try {
+            const params = new URLSearchParams()
 
-                params.set('language', debouncedLanguage)
+            params.set('language', debouncedLanguage)
 
-                if (debouncedIsDraft) params.set('isDraft', 'true')
-                if (debouncedIsImportant) params.set('isImportant', 'true')
-                if (debouncedSearchTerm) params.set('keyword', debouncedSearchTerm)
-                if (debouncedStatus) {
-                    params.append('filter', 'status')
-                    params.append('value', debouncedStatus)
-                }
-
-                if (debouncedCategories.length > 0) {
-                    params.set('categories', debouncedCategories.join(','))
-                }
-
-                // ✅ Reset page if language changed and not already at page 1
-                const shouldResetPage =
-                    debouncedLanguage !== urlParams.language && urlParams.page !== 1
-                const pageToSet = shouldResetPage ? 1 : urlParams.page
-                params.set('page', pageToSet.toString())
-
-                const currentParams = searchParams.toString()
-                const newParams = params.toString()
-                if (currentParams !== newParams) {
-                    router.push(`?${newParams}`, { scroll: false })
-                }
-            } finally {
-                setTimeout(() => {
-                    setIsLoading(false)
-                    if (searchTermChanged) setIsSearching(false)
-                }, 100)
+            if (debouncedIsDraft) params.set('isDraft', 'true')
+            if (debouncedIsImportant) params.set('isImportant', 'true')
+            if (debouncedSearchTerm) params.set('keyword', debouncedSearchTerm)
+            if (debouncedStatus) {
+                params.append('filter', 'status')
+                params.append('value', debouncedStatus)
             }
-        }
 
-        updateURL()
+            if (debouncedCategories.length > 0) {
+                params.set('categories', debouncedCategories.join(','))
+            }
+
+            // ✅ Reset page if language changed and not already at page 1
+            const shouldResetPage = debouncedLanguage !== urlParams.language && urlParams.page !== 1
+            const pageToSet = shouldResetPage ? 1 : urlParams.page
+            params.set('page', pageToSet.toString())
+
+            const currentParams = searchParams.toString()
+            const newParams = params.toString()
+            if (currentParams !== newParams) {
+                router.push(`?${newParams}`, { scroll: false })
+            }
+        } finally {
+            setTimeout(() => {
+                setIsLoading(false)
+                if (searchTermChanged) setIsSearching(false)
+            }, 100)
+        }
     }, [
         debouncedLanguage,
         debouncedIsDraft,
@@ -174,6 +169,18 @@ export default function AdvancedSearch() {
         urlParams.language,
     ])
 
+    useEffect(() => {
+        updateURL()
+    }, [
+        debouncedLanguage,
+        debouncedIsDraft,
+        debouncedIsImportant,
+        debouncedStatus,
+        debouncedSearchTerm,
+        debouncedCategories,
+        updateURL,
+    ])
+
     const handleSearch = useCallback((e: React.FormEvent) => {
         e.preventDefault()
         setIsFilterOpen(false)
@@ -182,6 +189,109 @@ export default function AdvancedSearch() {
     const handleLanguageChange = useCallback((lang: string) => {
         setLanguage(lang)
     }, [])
+
+    const categoryCheckboxes = useMemo(() => {
+        return CATEGORIES.map((cat) => (
+            <div key={cat} className='flex items-center space-x-2'>
+                <Checkbox
+                    id={`category-${cat}`}
+                    checked={selectedCategories.includes(cat)}
+                    onCheckedChange={(checked) => {
+                        setSelectedCategories((prev) =>
+                            checked ? [...prev, cat] : prev.filter((c) => c !== cat)
+                        )
+                    }}
+                />
+                <Label htmlFor={`category-${cat}`} className='text-xs'>
+                    {language === 'EN' ? cat : CATEGORY_LABELS[cat]}
+                </Label>
+            </div>
+        ))
+    }, [selectedCategories, language])
+
+    const statusFilters = useMemo(
+        () => (
+            <div className='space-y-2'>
+                <h3 className='text-sm font-medium'>
+                    {language === 'EN' ? 'Status Filters' : 'Trạng thái'}
+                </h3>
+                <div className='space-y-2'>
+                    <div className='flex items-center space-x-2'>
+                        <Checkbox
+                            id='isDraft'
+                            checked={isDraft}
+                            onCheckedChange={(checked) => setIsDraft(checked === true)}
+                        />
+                        <Label htmlFor='isDraft' className='text-sm'>
+                            {language === 'EN' ? 'Draft' : 'Bản nháp'}
+                        </Label>
+                    </div>
+                    <div className='flex items-center space-x-2'>
+                        <Checkbox
+                            id='isImportant'
+                            checked={isImportant}
+                            onCheckedChange={(checked) => setIsImportant(checked === true)}
+                        />
+                        <Label htmlFor='isImportant' className='text-sm'>
+                            {language === 'EN' ? 'Important' : 'Quan trọng'}
+                        </Label>
+                    </div>
+                </div>
+            </div>
+        ),
+        [language, isDraft, isImportant]
+    )
+
+    const publicationStatus = useMemo(
+        () => (
+            <div className='space-y-2'>
+                <h3 className='text-sm font-medium'>
+                    {language === 'EN' ? 'Publication Status' : 'Trạng thái xuất bản'}
+                </h3>
+                <RadioGroup value={status} onValueChange={setStatus}>
+                    <div className='flex items-center space-x-2'>
+                        <RadioGroupItem value='Achieved' id='achieved' />
+                        <Label htmlFor='achieved' className='text-sm'>
+                            {language === 'EN' ? 'Achieved' : 'Đã lưu trữ'}
+                        </Label>
+                    </div>
+                    <div className='flex items-center space-x-2'>
+                        <RadioGroupItem value='Published' id='published' />
+                        <Label htmlFor='published' className='text-sm'>
+                            {language === 'EN' ? 'Published' : 'Đã xuất bản'}
+                        </Label>
+                    </div>
+                </RadioGroup>
+            </div>
+        ),
+        [language, status]
+    )
+
+    const languageButtons = useMemo(
+        () => (
+            <div className='flex gap-2'>
+                <Button
+                    variant={language === 'EN' ? 'default' : 'outline'}
+                    size='sm'
+                    onClick={() => handleLanguageChange('EN')}
+                    className='h-7 flex-1 text-xs'
+                    disabled={isLoading}
+                >
+                    English
+                </Button>
+                <Button
+                    variant={language === 'VI' ? 'default' : 'outline'}
+                    size='sm'
+                    onClick={() => handleLanguageChange('VI')}
+                    className='h-7 flex-1 text-xs'
+                    disabled={isLoading}
+                >
+                    Tiếng Việt
+                </Button>
+            </div>
+        ),
+        [language, isLoading, handleLanguageChange]
+    )
 
     return (
         <Card className='mx-auto w-full min-w-[300px]'>
@@ -236,62 +346,10 @@ export default function AdvancedSearch() {
 
                                 <div className='space-y-6 py-4'>
                                     {/* Status Filters */}
-                                    <div className='space-y-2'>
-                                        <h3 className='text-sm font-medium'>
-                                            {language === 'EN' ? 'Status Filters' : 'Trạng thái'}
-                                        </h3>
-                                        <div className='space-y-2'>
-                                            <div className='flex items-center space-x-2'>
-                                                <Checkbox
-                                                    id='isDraft'
-                                                    checked={isDraft}
-                                                    onCheckedChange={(checked) =>
-                                                        setIsDraft(checked === true)
-                                                    }
-                                                />
-                                                <Label htmlFor='isDraft' className='text-sm'>
-                                                    {language === 'EN' ? 'Draft' : 'Bản nháp'}
-                                                </Label>
-                                            </div>
-                                            <div className='flex items-center space-x-2'>
-                                                <Checkbox
-                                                    id='isImportant'
-                                                    checked={isImportant}
-                                                    onCheckedChange={(checked) =>
-                                                        setIsImportant(checked === true)
-                                                    }
-                                                />
-                                                <Label htmlFor='isImportant' className='text-sm'>
-                                                    {language === 'EN' ? 'Important' : 'Quan trọng'}
-                                                </Label>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {statusFilters}
 
                                     {/* Publication Status */}
-                                    <div className='space-y-2'>
-                                        <h3 className='text-sm font-medium'>
-                                            {language === 'EN'
-                                                ? 'Publication Status'
-                                                : 'Trạng thái xuất bản'}
-                                        </h3>
-                                        <RadioGroup value={status} onValueChange={setStatus}>
-                                            <div className='flex items-center space-x-2'>
-                                                <RadioGroupItem value='Achieved' id='achieved' />
-                                                <Label htmlFor='achieved' className='text-sm'>
-                                                    {language === 'EN' ? 'Achieved' : 'Đã lưu trữ'}
-                                                </Label>
-                                            </div>
-                                            <div className='flex items-center space-x-2'>
-                                                <RadioGroupItem value='Published' id='published' />
-                                                <Label htmlFor='published' className='text-sm'>
-                                                    {language === 'EN'
-                                                        ? 'Published'
-                                                        : 'Đã xuất bản'}
-                                                </Label>
-                                            </div>
-                                        </RadioGroup>
-                                    </div>
+                                    {publicationStatus}
 
                                     {/* Categories */}
                                     <div className='space-y-2'>
@@ -299,32 +357,7 @@ export default function AdvancedSearch() {
                                             {language === 'EN' ? 'Categories' : 'Danh mục'}
                                         </h3>
                                         <div className='grid grid-cols-1 gap-2'>
-                                            {CATEGORIES.map((cat) => (
-                                                <div
-                                                    key={cat}
-                                                    className='flex items-center space-x-2'
-                                                >
-                                                    <Checkbox
-                                                        id={`category-${cat}`}
-                                                        checked={selectedCategories.includes(cat)}
-                                                        onCheckedChange={(checked) => {
-                                                            setSelectedCategories((prev) =>
-                                                                checked
-                                                                    ? [...prev, cat]
-                                                                    : prev.filter((c) => c !== cat)
-                                                            )
-                                                        }}
-                                                    />
-                                                    <Label
-                                                        htmlFor={`category-${cat}`}
-                                                        className='text-xs'
-                                                    >
-                                                        {language === 'EN'
-                                                            ? cat
-                                                            : CATEGORY_LABELS[cat]}
-                                                    </Label>
-                                                </div>
-                                            ))}
+                                            {categoryCheckboxes}
                                         </div>
                                     </div>
                                 </div>
@@ -340,26 +373,7 @@ export default function AdvancedSearch() {
                     <h3 className='mb-1.5 text-xs font-medium'>
                         {language === 'EN' ? 'Language of the bulletin' : 'Ngôn ngữ của bản tin'}
                     </h3>
-                    <div className='flex gap-2'>
-                        <Button
-                            variant={language === 'EN' ? 'default' : 'outline'}
-                            size='sm'
-                            onClick={() => handleLanguageChange('EN')}
-                            className='h-7 flex-1 text-xs'
-                            disabled={isLoading}
-                        >
-                            English
-                        </Button>
-                        <Button
-                            variant={language === 'VI' ? 'default' : 'outline'}
-                            size='sm'
-                            onClick={() => handleLanguageChange('VI')}
-                            className='h-7 flex-1 text-xs'
-                            disabled={isLoading}
-                        >
-                            Tiếng Việt
-                        </Button>
-                    </div>
+                    {languageButtons}
                 </div>
             </CardFooter>
         </Card>
