@@ -1,8 +1,19 @@
-import React from 'react'
+'use client'
+import dynamic from 'next/dynamic'
 import PostHeader from '@/components/tiptap/shared/PostHeader'
-import { Bulletin } from '@/types/bulletin.type'
+import type { Bulletin } from '@/types/bulletin.type'
 import { PostReadingProgress } from '../blog/post-reading-progress'
-import { HtmlRenderer } from '../html-renderer'
+
+// Import HtmlRenderer with no SSR to ensure it only runs on the client
+const HtmlRenderer = dynamic(
+    () => import('../html-renderer').then((mod) => ({ default: mod.HtmlRenderer })),
+    {
+        ssr: false,
+        loading: () => (
+            <div className='h-96 animate-pulse rounded-md bg-gray-100 dark:bg-gray-800'></div>
+        ),
+    }
+)
 
 export default function RenderItem({ bulletin }: { bulletin: Bulletin }) {
     return (
